@@ -1,0 +1,52 @@
+[
+  {
+    "conversationId": "conv_1_exact",
+    "subject": "Invoice for August Services",
+    "sender": "billing@vendor.com",
+    "toRecipients": ["invoices@airowire.com"],
+    "receivedDateTime": "2023-10-01T10:00:00Z",
+    "body": "Please find attached the invoice for August.",
+    "hasAttachments": true,
+    "attachments": ["august_invoice.pdf"]
+  },
+  {
+    "conversationId": "conv_1_exact",
+    "subject": "RE: Invoice for August Services",
+    "sender": "invoices@airowire.com",
+    "toRecipients": ["billing@vendor.com"],
+    "receivedDateTime": "2023-10-02T10:00:00Z",
+    "body": "Received, thank you.",
+    "hasAttachments": false,
+    "attachments": []
+  },
+  {
+    "conversationId": null,
+    "subject": "FWD: Invoice for August Services",
+    "sender": "finance_forwarder@internal.com",
+    "toRecipients": ["invoices@airowire.com"],
+    "receivedDateTime": "2023-10-03T10:00:00Z",
+    "body": "Forwarding this as it lost its thread ID.",
+    "hasAttachments": true,
+    "attachments": ["august_invoice.pdf"]
+  },
+  {
+    "conversationId": null,
+    "subject": "New Microsoft Azure Bill",
+    "sender": "azure-noreply@microsoft.com",
+    "toRecipients": ["invoices@airowire.com"],
+    "receivedDateTime": "2023-11-01T10:00:00Z",
+    "body": "Your new bill is ready.",
+    "hasAttachments": true,
+    "attachments": ["azure_bill.pdf"]
+  },
+  {
+    "conversationId": "conv_2_mismatch",
+    "subject": "New Microsoft Azure Bill",
+    "sender": "random@different.com",
+    "toRecipients": ["invoices@airowire.com"],
+    "receivedDateTime": "2024-02-01T10:00:00Z",
+    "body": "A different thread but same subject.",
+    "hasAttachments": false,
+    "attachments": []
+  }
+]

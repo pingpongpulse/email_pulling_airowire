@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --primary-orange: #F26522;
+  --primary-orange-hover: #E05412;
+  --primary-orange-light: rgba(242, 101, 34, 0.1);
+  --bg-color: #FFFFFF;
+  --bg-secondary: #F4F7FA;
+  --sidebar-bg: rgba(255, 255, 255, 0.85);
+  --text-dark: #1A1A24;
+  --text-muted: #6B7280;
+  --border-color: rgba(229, 231, 235, 0.8);
+  --warning-bg: #FEF3C7;
+  --warning-text: #B45309;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --shadow-orange: 0 4px 14px 0 rgba(242, 101, 34, 0.39);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-secondary);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(24, 89%, 54%, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(24, 89%, 54%, 0.05) 0px, transparent 50%);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, .brand {
+  font-family: 'Outfit', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-orange);
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar with Glassmorphism */
+.sidebar {
+  width: 260px;
+  background-color: var(--sidebar-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 1px solid var(--border-color);
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+}
+
+.brand {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-orange);
+  margin-bottom: 2.5rem;
+  text-align: center;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  color: var(--text-muted);
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+  background-color: var(--primary-orange-light);
+  color: var(--primary-orange);
+  transform: translateX(4px);
+}
+
+.nav-link.active {
+  background-color: var(--primary-orange);
+  color: white;
+  box-shadow: var(--shadow-orange);
+}
+
+.nav-link svg {
+  margin-right: 0.875rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover svg {
+  transform: scale(1.1);
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  padding: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+/* Premium Cards */
+.card {
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(249, 250, 251, 0.5);
+}
+
+.card-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.card-body {
+  padding: 1.75rem;
+}
+
+/* Thread List Items */
+.thread-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.thread-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--primary-orange);
+  transform: scaleY(0);
+  transition: transform 0.2s ease;
+}
+
+.thread-item:hover {
+  background-color: var(--primary-orange-light);
+}
+
+.thread-item:hover::before {
+  transform: scaleY(1);
+}
+
+.thread-item:last-child {
+  border-bottom: none;
+}
+
+.thread-subject {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  color: var(--text-dark);
+}
+
+.thread-meta {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Badges */
+.badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-warning {
+  background-color: var(--warning-bg);
+  color: var(--warning-text);
+  border: 1px solid rgba(180, 83, 9, 0.2);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-primary {
+  background-color: var(--primary-orange);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-orange-hover);
+  box-shadow: var(--shadow-orange);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-secondary);
+  border-color: #D1D5DB;
+}
+
+/* Inputs and Forms */
+input, textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary-orange) !important;
+  box-shadow: 0 0 0 3px var(--primary-orange-light);
+}
+
+/* Email Bubble in Thread View */
+.email-bubble {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
